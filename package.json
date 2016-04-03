@@ -1,0 +1,18 @@
+{
+  "name": "node-asynckeystate",
+  "version": "0.0.1",
+  "description": "Node Binding for getAsyncKeyState.",
+  "keywords": [
+    "hotkey", "getAsyncKeyState"
+  ],
+  "license":"MIT",
+  "os" : [ "win32"],
+  "main": "asynckeystate.js",
+  "private": false,
+  "gypfile": true,
+  "repository" :
+  {
+  "type" : "git",
+  "url" : "https://github.com/Zysen/node-asynckeystate"
+  }
+}
