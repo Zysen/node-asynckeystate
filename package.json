@@ -1,5 +1,5 @@
 {
-  "name": "node-asynckeystate",
+  "name": "asynckeystate",
   "version": "0.0.1",
   "description": "Node Binding for getAsyncKeyState.",
   "keywords": [

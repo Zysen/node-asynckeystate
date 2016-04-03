@@ -1,8 +1,8 @@
 {
   'targets': [
     {
-      'target_name': 'windows_hotkey',
-      'sources': [ 'windows-hotkey.cc' ]
+      'target_name': 'asynckeystate',
+      'sources': [ 'asynckeystate.cc' ]
     }
   ]
 }
