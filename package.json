@@ -1,6 +1,6 @@
 {
   "name": "asynckeystate",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Node Binding for getAsyncKeyState.",
   "keywords": [
     "hotkey", "getAsyncKeyState"
