@@ -1,4 +1,4 @@
-var aks = require(__dirname+'/build/Release/asynckeystate');
+var aks = require('bindings')('asynckeystate.node')
 aks.codes = {
 		vk_Scroll: 0x91,
 		vk_BackSpace: 0x08,

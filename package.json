@@ -1,6 +1,6 @@
 {
   "name": "asynckeystate",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "description": "Node Binding for getAsyncKeyState.",
   "keywords": [
     "hotkey", "getAsyncKeyState"
@@ -14,5 +14,9 @@
   {
   "type" : "git",
   "url" : "https://github.com/Zysen/node-asynckeystate"
+  },
+  "dependencies": {
+    "bindings": "~1.2.1",
+    "node-addon-api": "^1.0.0"
   }
 }

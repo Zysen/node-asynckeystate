@@ -1,17 +1,24 @@
-#include <node.h>
+#include <napi.h>
 #include <windows.h>
-using namespace v8;
-using v8::Function;
-using v8::FunctionCallbackInfo;
+Napi::Value NodeGetAsyncKeyState(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
 
-void getAsyncKeyState(const FunctionCallbackInfo<Value>& args) {
-  Isolate* isolate = args.GetIsolate();  
-  int keyCode = (int)args[0]->IntegerValue();
-  args.GetReturnValue().Set(Boolean::New(isolate, GetAsyncKeyState(keyCode)));
+  if (info.Length() < 1) {
+    Napi::TypeError::New(env, "Wrong number of arguments")
+        .ThrowAsJavaScriptException();
+    return env.Null();
+  }
+
+  if (!info[0].IsNumber()) {
+    Napi::TypeError::New(env, "Wrong arguments").ThrowAsJavaScriptException();
+    return env.Null();
+  }
+
+  int keyCode = info[0].As<Napi::Number>().Uint32Value();
+  return Napi::Boolean::New(env, GetAsyncKeyState(keyCode));
 }
-
-void init(Local<Object> exports) {
-  NODE_SET_METHOD(exports, "getAsyncKeyState", getAsyncKeyState);
+Napi::Object Init(Napi::Env env, Napi::Object exports) {
+  exports.Set(Napi::String::New(env, "getAsyncKeyState"), Napi::Function::New(env, NodeGetAsyncKeyState));
+  return exports;
 }
-
-NODE_MODULE(addon, init)
+NODE_API_MODULE(addon, Init)
